@@ -23,13 +23,32 @@ Enter the code for admin.py and models.py
 Execute Django admin and create 10 Football players
 
 ## PROGRAM
+```
 
-Include your code here
+models.py
+from django.db import models
+from django.contrib import admin
+class Footballplayer (models.Model):
+      name=models.CharField(max_length=15)
+      weight=models.IntegerField()
+      age=models.IntegerField()
+      members=models.CharField(max_length=20)
+
+class FootballplayerAdmin(admin.ModelAdmin):
+    list_display=('name','weight','age','members')
+
+admin.py
+from django.contrib import admin
+from .models import Footballplayer,FootballplayerAdmin
+admin.site.register(Footballplayer,FootballplayerAdmin)
+
+
+```
+
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
-
+![Alt text](<Screenshot (1).png>)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
